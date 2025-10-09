@@ -148,7 +148,7 @@ const Onboarding = () => {
             <div className="flex justify-center mt-6">
               <Button
                 size="lg"
-                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 text-lg rounded-full"
+                className="bg-white hover:bg-white/90 text-primary px-8 py-6 text-lg rounded-full font-semibold"
                 onClick={() => {
                   setOpenDialog(null);
                   if (!completedSteps.includes(0)) {
