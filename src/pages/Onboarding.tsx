@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { toast } from "sonner";
@@ -19,75 +18,17 @@ const modules = [
 ];
 
 const Onboarding = () => {
-  const [user, setUser] = useState<any>(null);
-  const [progress, setProgress] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [completedModules, setCompletedModules] = useState<number[]>([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    checkUser();
-  }, []);
-
-  const checkUser = async () => {
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) {
-      navigate("/auth");
-      return;
+  const markModuleComplete = (moduleNumber: number) => {
+    if (!completedModules.includes(moduleNumber)) {
+      setCompletedModules([...completedModules, moduleNumber]);
+      toast.success("¡Módulo completado!");
     }
-    setUser(session.user);
-    await loadProgress(session.user.id);
-    setLoading(false);
   };
 
-  const loadProgress = async (userId: string) => {
-    const { data, error } = await supabase
-      .from("module_progress")
-      .select("*")
-      .eq("user_id", userId);
-
-    if (error) {
-      console.error("Error loading progress:", error);
-      return;
-    }
-    setProgress(data || []);
-  };
-
-  const markModuleComplete = async (moduleNumber: number) => {
-    if (!user) return;
-
-    const { error } = await supabase
-      .from("module_progress")
-      .upsert({
-        user_id: user.id,
-        module_number: moduleNumber,
-        completed: true,
-        completed_at: new Date().toISOString(),
-      });
-
-    if (error) {
-      toast.error("Error al guardar el progreso");
-      return;
-    }
-
-    await loadProgress(user.id);
-    toast.success("¡Módulo completado!");
-  };
-
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    navigate("/");
-  };
-
-  const completedModules = progress.filter((p) => p.completed).length;
-  const progressPercentage = (completedModules / modules.length) * 100;
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gradient-hero flex items-center justify-center">
-        <div className="text-xl">Cargando...</div>
-      </div>
-    );
-  }
+  const progressPercentage = (completedModules.length / modules.length) * 100;
 
   return (
     <div className="min-h-screen bg-gradient-hero">
@@ -101,8 +42,8 @@ const Onboarding = () => {
             <Button variant="outline" onClick={() => navigate("/faq")}>
               FAQ
             </Button>
-            <Button variant="ghost" onClick={handleLogout}>
-              Cerrar Sesión
+            <Button variant="outline" onClick={() => navigate("/")}>
+              Inicio
             </Button>
           </div>
         </div>
@@ -113,7 +54,7 @@ const Onboarding = () => {
           <h1 className="text-3xl font-bold mb-4">Tu Proceso de Inducción</h1>
           <div className="space-y-2">
             <div className="flex justify-between text-sm">
-              <span>Progreso: {completedModules} de {modules.length} módulos</span>
+              <span>Progreso: {completedModules.length} de {modules.length} módulos</span>
               <span>{Math.round(progressPercentage)}%</span>
             </div>
             <Progress value={progressPercentage} className="h-3" />
@@ -121,17 +62,14 @@ const Onboarding = () => {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {modules.map((module) => {
-            const moduleProgress = progress.find((p) => p.module_number === module.number);
-            return (
-              <VideoModule
-                key={module.number}
-                module={module}
-                isCompleted={moduleProgress?.completed || false}
-                onComplete={() => markModuleComplete(module.number)}
-              />
-            );
-          })}
+          {modules.map((module) => (
+            <VideoModule
+              key={module.number}
+              module={module}
+              isCompleted={completedModules.includes(module.number)}
+              onComplete={() => markModuleComplete(module.number)}
+            />
+          ))}
         </div>
       </main>
     </div>

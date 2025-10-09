@@ -26,6 +26,9 @@ const Calendario = () => {
             <Button variant="outline" onClick={() => navigate("/faq")}>
               FAQ
             </Button>
+            <Button variant="outline" onClick={() => navigate("/")}>
+              Inicio
+            </Button>
           </div>
         </div>
       </header>

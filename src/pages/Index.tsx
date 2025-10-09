@@ -89,7 +89,7 @@ const Index = () => {
             <Button 
               size="lg" 
               className="bg-gradient-primary hover:opacity-90 transition-opacity text-lg px-8 py-6 shadow-glow"
-              onClick={() => window.location.href = '/auth'}
+              onClick={() => window.location.href = '/onboarding'}
             >
               Iniciar mi aventura con ISEP
             </Button>

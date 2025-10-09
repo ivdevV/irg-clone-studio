@@ -48,6 +48,9 @@ const FAQ = () => {
             <Button variant="outline" onClick={() => navigate("/calendario")}>
               Calendario
             </Button>
+            <Button variant="outline" onClick={() => navigate("/")}>
+              Inicio
+            </Button>
           </div>
         </div>
       </header>
