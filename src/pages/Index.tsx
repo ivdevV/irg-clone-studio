@@ -86,7 +86,11 @@ const Index = () => {
 
           {/* CTA Button */}
           <div className="mt-10 flex justify-center">
-            <Button size="lg" className="bg-gradient-primary hover:opacity-90 transition-opacity text-lg px-8 py-6 shadow-glow">
+            <Button 
+              size="lg" 
+              className="bg-gradient-primary hover:opacity-90 transition-opacity text-lg px-8 py-6 shadow-glow"
+              onClick={() => window.location.href = '/auth'}
+            >
               Iniciar mi aventura con ISEP
             </Button>
           </div>
