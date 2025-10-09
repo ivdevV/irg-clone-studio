@@ -40,11 +40,6 @@ const VideoModule = ({ module, isCompleted, onComplete }: VideoModuleProps) => {
             <PlayCircle className="w-4 h-4 mr-2" />
             {isCompleted ? "Ver de nuevo" : "Ver módulo"}
           </Button>
-          {!isCompleted && (
-            <Button variant="outline" className="w-full" onClick={onComplete}>
-              Marcar como completado
-            </Button>
-          )}
         </CardContent>
       </Card>
 
@@ -66,11 +61,9 @@ const VideoModule = ({ module, isCompleted, onComplete }: VideoModuleProps) => {
               allowFullScreen
             />
           </div>
-          {!isCompleted && (
-            <Button onClick={onComplete} className="w-full">
-              Marcar como completado
-            </Button>
-          )}
+          <Button onClick={onComplete} className="w-full">
+            Marcar como completado
+          </Button>
         </DialogContent>
       </Dialog>
     </>
