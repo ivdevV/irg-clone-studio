@@ -7,7 +7,7 @@ const Index = () => {
       {/* Header */}
       <header className="w-full py-8 px-4">
         <div className="max-w-4xl mx-auto flex justify-center">
-          <img src={isepLogo} alt="ISEP Universidad" className="h-16 md:h-20 object-contain animate-fade-in" />
+          <img src={isepLogo} alt="Instituto Raimon Gaja" className="h-16 md:h-20 object-contain animate-fade-in" />
         </div>
       </header>
 
@@ -18,14 +18,14 @@ const Index = () => {
           <div className="flex justify-center mb-8">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-primary rounded-full blur-md opacity-50"></div>
-              <img src={directorImage} alt="Marc Gaja - Director General" className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary shadow-glow" />
+              <img src={directorImage} alt="Dr. Raimon Gaja - Director General" className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary shadow-glow" />
             </div>
           </div>
 
           {/* Director Info */}
           <div className="text-center mb-8">
-            <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Raimon Gaja</h1>
-            <p className="text-muted-foreground text-lg">Director General, iRG</p>
+            <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Dr. Raimon Gaja</h1>
+            <p className="text-muted-foreground text-lg">Fundador y Director General, Instituto Raimon Gaja</p>
           </div>
 
           {/* Welcome Message */}
@@ -35,52 +35,19 @@ const Index = () => {
             </p>
 
             <p>
-              Hoy están dando un paso que no cualquiera se atreve a dar. Un paso que representa crecimiento, 
-              compromiso y valentía. En nombre de todo el equipo de Universidad ISEP, quiero darles la más 
-              cálida bienvenida a esta comunidad académica que, desde ahora, también es suya.
+              Hoy comienzan algo extraordinario. En nombre de todo el equipo del Instituto Raimon Gaja, les doy la más cálida bienvenida a esta comunidad de transformadores de vidas. Están aquí porque no se conforman con ser psicólogos del montón, sino especialistas de excelencia preparados para resolver los casos más complejos. Esa determinación merece mi más profunda admiración.
             </p>
 
             <p>
-              Este no es un inicio cualquiera. Es el comienzo de una etapa en la que ustedes serán parte de 
-              algo mucho más grande: una universidad que cree en la innovación, en el aprendizaje autónomo, 
-              en la tecnología al servicio del ser humano, y en la educación como motor de transformación 
-              personal y social.
+              En el Instituto Raimon Gaja creemos en una psicología práctica que se aprende haciendo. Les enseñaremos a curar con las técnicas más avanzadas de Europa, de la mano de profesionales con décadas de experiencia real. Aprenderán lo que realmente necesitan: cómo conducir esa primera sesión, manejar una crisis, transformar el sufrimiento en esperanza. Y no estarán solos: cuentan con mentores de prestigio internacional y una comunidad que cree profundamente en su potencial.
             </p>
 
             <p>
-              En ISEP nos mueve la idea de hacer las cosas de manera distinta. Somos una institución que no 
-              se conforma con lo tradicional, que busca nuevas formas de enseñar, de conectar, de inspirar. 
-              Y ustedes están aquí porque comparten esa visión. Porque no se conforman. Porque quieren marcar 
-              la diferencia.
-            </p>
-
-            <p>
-              Hoy quiero felicitarles, sinceramente. Porque decidir formarse no es solo llenar un requisito, 
-              es apostar por ustedes mismos, por su propósito, por su futuro. Y hacerlo en una universidad 
-              como la nuestra significa que están dispuestos y dispuestas a desafiar lo convencional y 
-              construir algo nuevo con su conocimiento, su experiencia y su pasión.
-            </p>
-
-            <p>
-              Sé que el primer día puede venir con nervios, preguntas o incertidumbre. Pero también viene 
-              con fuerza, con ilusión y con la certeza de que están en el lugar correcto. A partir de hoy, 
-              cada clase, cada actividad, cada esfuerzo, será parte de una transformación profunda. No están 
-              solos ni solas en este proceso: están acompañados y acompañadas por una comunidad que cree en 
-              ustedes.
-            </p>
-
-            <p>
-              Este es su momento. Este es su espacio. Sean curiosos, curiosas, sean constantes, y sobre todo, 
-              sean valientes. Porque las personas que cambian el mundo comienzan así: decidiendo dar un primer 
-              paso.
-            </p>
-
-            <p className="font-semibold">
-              Bienvenidos y bienvenidas a Universidad ISEP. Estamos orgullosos y orgullosas de tenerles aquí.
+              Este es su momento de transformación: de la inseguridad a la maestría, de la teoría a la práctica real, de ser uno más a ser el especialista de referencia en su ciudad. Sé que pueden sentir nervios, pero el simple hecho de estar aquí demuestra que están listos. Bienvenidos al Instituto Raimon Gaja. Estamos profundamente orgullosos de tenerlos en esta familia.
             </p>
 
             <p className="italic">
-              Con admiración y todo mi compromiso,
+              Con admiración y compromiso absoluto con su éxito,
             </p>
           </div>
 
@@ -91,7 +58,7 @@ const Index = () => {
               className="bg-gradient-primary hover:opacity-90 transition-opacity text-lg px-8 py-6 shadow-glow"
               onClick={() => window.location.href = '/onboarding'}
             >
-              Iniciar mi aventura con ISEP
+              Iniciar mi aventura con el Instituto Raimon Gaja
             </Button>
           </div>
         </Card>
