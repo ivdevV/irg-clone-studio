@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Progress } from "@/components/ui/progress";
 import { Card } from "@/components/ui/card";
 import isepLogo from "@/assets/isep-logo.png";
-import directorImage from "@/assets/director.jpeg";
+import directorImage from "@/assets/director.png";
 import {
   Accordion,
   AccordionContent,

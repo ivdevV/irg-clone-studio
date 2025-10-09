@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import isepLogo from "@/assets/isep-logo.png";
-import directorImage from "@/assets/director.jpeg";
+import directorImage from "@/assets/director.png";
 const Index = () => {
   return <div className="min-h-screen bg-gradient-hero">
       {/* Header */}
