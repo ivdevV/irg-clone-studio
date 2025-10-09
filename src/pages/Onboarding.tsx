@@ -259,45 +259,6 @@ const Onboarding = () => {
                 Tendrás acceso permanente a todos los recursos.
               </AccordionContent>
             </AccordionItem>
-
-            <AccordionItem value="item-8" className="border rounded-lg px-6 bg-card">
-              <AccordionTrigger className="hover:no-underline">
-                <div className="flex items-center gap-3">
-                  <BadgeCheck className="w-5 h-5 text-primary" />
-                  <span className="text-left">¿Quieres hacer tus prácticas en una empresa o institución de tu interés? ¡En ISEP te apoyamos para lograrlo!</span>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground pl-8">
-                Contamos con un departamento de prácticas que te ayudará a encontrar oportunidades. 
-                También puedes proponer empresas de tu interés y te apoyamos en el proceso.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-9" className="border rounded-lg px-6 bg-card">
-              <AccordionTrigger className="hover:no-underline">
-                <div className="flex items-center gap-3">
-                  <BadgeCheck className="w-5 h-5 text-primary" />
-                  <span className="text-left">Tu credencial ISEP: más que un documento, una llave de acceso a beneficios</span>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground pl-8">
-                Tu credencial digital te dará acceso a descuentos en servicios, bibliotecas y eventos académicos. 
-                La recibirás automáticamente al completar tu inscripción.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-10" className="border rounded-lg px-6 bg-card">
-              <AccordionTrigger className="hover:no-underline">
-                <div className="flex items-center gap-3">
-                  <Heart className="w-5 h-5 text-primary" />
-                  <span className="text-left">Beneficio exclusivo: Accede a atención psicológica gratuita con ISEP CLINIC</span>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground pl-8">
-                Todos nuestros estudiantes tienen acceso gratuito a sesiones de apoyo psicológico con profesionales certificados. 
-                Agenda tu cita desde el campus virtual.
-              </AccordionContent>
-            </AccordionItem>
           </Accordion>
         </section>
       </main>
