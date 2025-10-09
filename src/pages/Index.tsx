@@ -49,6 +49,12 @@ const Index = () => {
             <p className="italic">
               Con admiración y compromiso absoluto con su éxito,
             </p>
+
+            <p className="font-semibold mt-4">
+              Dr. Raimon Gaja<br />
+              Fundador y Director General<br />
+              Instituto Raimon Gaja
+            </p>
           </div>
 
           {/* CTA Button */}
