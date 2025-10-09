@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Progress } from "@/components/ui/progress";
 import { Card } from "@/components/ui/card";
 import isepLogo from "@/assets/isep-logo.png";
+import directorImage from "@/assets/director.jpeg";
 import {
   Accordion,
   AccordionContent,
@@ -47,8 +48,20 @@ const Onboarding = () => {
   return (
     <div className="min-h-screen bg-background">
       <header className="w-full py-8 px-4 border-b">
-        <div className="max-w-6xl mx-auto flex justify-center">
+        <div className="max-w-6xl mx-auto flex flex-col items-center gap-6">
           <img src={isepLogo} alt="Instituto Raimon Gaja" className="h-16" />
+          <div className="flex flex-col items-center">
+            <div className="relative mb-4">
+              <div className="absolute inset-0 bg-gradient-primary rounded-full blur-md opacity-50"></div>
+              <img 
+                src={directorImage} 
+                alt="Dr. Raimon Gaja - Director General" 
+                className="relative w-24 h-24 rounded-full object-cover border-4 border-primary shadow-glow" 
+              />
+            </div>
+            <h2 className="text-xl font-bold text-foreground">Dr. Raimon Gaja</h2>
+            <p className="text-muted-foreground">Fundador y Director General</p>
+          </div>
         </div>
       </header>
 
