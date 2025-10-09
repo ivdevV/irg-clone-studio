@@ -2,18 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import isepLogo from "@/assets/isep-logo.png";
 import directorImage from "@/assets/director.jpeg";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-gradient-hero">
+  return <div className="min-h-screen bg-gradient-hero">
       {/* Header */}
       <header className="w-full py-8 px-4">
         <div className="max-w-4xl mx-auto flex justify-center">
-          <img 
-            src={isepLogo} 
-            alt="ISEP Universidad" 
-            className="h-16 md:h-20 object-contain animate-fade-in"
-          />
+          <img src={isepLogo} alt="ISEP Universidad" className="h-16 md:h-20 object-contain animate-fade-in" />
         </div>
       </header>
 
@@ -24,22 +18,14 @@ const Index = () => {
           <div className="flex justify-center mb-8">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-primary rounded-full blur-md opacity-50"></div>
-              <img
-                src={directorImage}
-                alt="Marc Gaja - Director General"
-                className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary shadow-glow"
-              />
+              <img src={directorImage} alt="Marc Gaja - Director General" className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary shadow-glow" />
             </div>
           </div>
 
           {/* Director Info */}
           <div className="text-center mb-8">
-            <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-              Marc Gaja
-            </h1>
-            <p className="text-muted-foreground text-lg">
-              Director General, Universidad ISEP
-            </p>
+            <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Raimon Gaja</h1>
+            <p className="text-muted-foreground text-lg">Director General, iRG</p>
           </div>
 
           {/* Welcome Message */}
@@ -100,10 +86,7 @@ const Index = () => {
 
           {/* CTA Button */}
           <div className="mt-10 flex justify-center">
-            <Button 
-              size="lg" 
-              className="bg-gradient-primary hover:opacity-90 transition-opacity text-lg px-8 py-6 shadow-glow"
-            >
+            <Button size="lg" className="bg-gradient-primary hover:opacity-90 transition-opacity text-lg px-8 py-6 shadow-glow">
               Iniciar mi aventura con ISEP
             </Button>
           </div>
@@ -114,8 +97,6 @@ const Index = () => {
           <p className="text-lg font-medium">Potenciando tu futuro</p>
         </div>
       </main>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
