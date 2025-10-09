@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { toast } from "sonner";
+import { Card } from "@/components/ui/card";
 import isepLogo from "@/assets/isep-logo.png";
-import VideoModule from "@/components/VideoModule";
 import {
   Accordion,
   AccordionContent,
@@ -25,96 +23,107 @@ import {
   Target,
   BarChart3,
   BadgeCheck,
-  Heart
+  Heart,
+  GraduationCap
 } from "lucide-react";
 
-const modules = [
-  { number: 1, title: "Bienvenida", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
-  { number: 2, title: "Campus Virtual", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
-  { number: 3, title: "Plan Docente", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
-  { number: 4, title: "Contacto con Profesores", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
-  { number: 5, title: "Contenidos", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
-  { number: 6, title: "Enlaces y Materiales", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
-  { number: 7, title: "Encuesta y Certificado", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
-  { number: 8, title: "Facturación", videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
+const onboardingSteps = [
+  { icon: Video, title: "Video de Bienvenida", color: "text-orange-400" },
+  { icon: LayoutGrid, title: "Ingresa a tu campus", color: "text-orange-400" },
+  { icon: FileText, title: "Plan Docente", color: "text-orange-400" },
+  { icon: Phone, title: "Contacto Docente", color: "text-orange-400" },
+  { icon: BookOpen, title: "Contenidos", color: "text-orange-400" },
+  { icon: Link2, title: "Enlaces de Interés", color: "text-orange-400" },
+  { icon: Award, title: "Encuesta y Certificado", color: "text-orange-400" },
+  { icon: CreditCard, title: "Módulo de Facturación", color: "text-orange-400" },
 ];
 
 const Onboarding = () => {
-  const [completedModules, setCompletedModules] = useState<number[]>([]);
+  const [completedSteps, setCompletedSteps] = useState<number[]>([]);
   const navigate = useNavigate();
 
-  const markModuleComplete = (moduleNumber: number) => {
-    if (!completedModules.includes(moduleNumber)) {
-      setCompletedModules([...completedModules, moduleNumber]);
-      toast.success("¡Módulo completado!");
-    }
-  };
-
-  const progressPercentage = (completedModules.length / modules.length) * 100;
+  const progressPercentage = (completedSteps.length / onboardingSteps.length) * 100;
 
   return (
-    <div className="min-h-screen bg-gradient-hero">
-      <header className="w-full py-6 px-4 bg-card/80 backdrop-blur-sm shadow-md">
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <img src={isepLogo} alt="ISEP Universidad" className="h-12" />
-          <div className="flex items-center gap-4">
-            <Button variant="outline" onClick={() => navigate("/calendario")}>
-              Calendario
-            </Button>
-            <Button variant="outline" onClick={() => navigate("/faq")}>
-              FAQ
-            </Button>
-            <Button variant="outline" onClick={() => navigate("/")}>
-              Inicio
-            </Button>
-          </div>
+    <div className="min-h-screen bg-background">
+      <header className="w-full py-8 px-4 border-b">
+        <div className="max-w-6xl mx-auto flex justify-center">
+          <img src={isepLogo} alt="Instituto Raimon Gaja" className="h-16" />
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-4">Tu Proceso de Inducción</h1>
+      <main className="max-w-6xl mx-auto px-4 py-12">
+        {/* Progress Section */}
+        <div className="mb-12">
+          <h2 className="text-xl font-semibold mb-4 text-foreground">Tu Progreso de Incorporación</h2>
           <div className="space-y-2">
-            <div className="flex justify-between text-sm">
-              <span>Progreso: {completedModules.length} de {modules.length} módulos</span>
-              <span>{Math.round(progressPercentage)}%</span>
+            <Progress value={progressPercentage} className="h-2" />
+            <div className="text-right">
+              <span className="text-primary font-semibold">{Math.round(progressPercentage)}%</span>
             </div>
-            <Progress value={progressPercentage} className="h-3" />
           </div>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {modules.map((module) => (
-            <VideoModule
-              key={module.number}
-              module={module}
-              isCompleted={completedModules.includes(module.number)}
-              onComplete={() => markModuleComplete(module.number)}
-            />
-          ))}
-        </div>
+        {/* Main Card */}
+        <Card className="bg-gradient-primary p-12 rounded-3xl mb-16 relative overflow-hidden">
+          {/* Icon decoration */}
+          <div className="absolute left-12 top-12">
+            <GraduationCap className="w-12 h-12 text-white/20" />
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 items-start relative z-10">
+            <div className="text-white">
+              <h1 className="text-4xl font-bold mb-4">Completa tu Onboarding</h1>
+              <p className="text-white/90 text-lg">
+                Tu viaje hacia el éxito profesional comienza hoy. Completa los siguientes pasos para empezar.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              {onboardingSteps.map((step, index) => {
+                const Icon = step.icon;
+                const isCompleted = completedSteps.includes(index);
+                
+                return (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      if (!isCompleted) {
+                        setCompletedSteps([...completedSteps, index]);
+                      }
+                    }}
+                    className="bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-2xl p-6 text-center transition-all border border-white/20 group"
+                  >
+                    <Icon className={`w-10 h-10 mx-auto mb-3 ${step.color} group-hover:scale-110 transition-transform`} />
+                    <p className="text-white text-sm font-medium">{step.title}</p>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </Card>
 
         {/* FAQ Section */}
-        <section className="mt-16 bg-card/80 backdrop-blur-sm rounded-lg p-8 shadow-card">
-          <h2 className="text-3xl font-bold text-center mb-8 text-primary">
+        <section className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8 text-foreground">
             Preguntas Frecuentes
           </h2>
           
           <Accordion type="single" collapsible className="w-full space-y-4">
-            <AccordionItem value="item-1" className="border rounded-lg px-4 bg-background/50">
+            <AccordionItem value="item-1" className="border rounded-lg px-6 bg-card">
               <AccordionTrigger className="hover:no-underline">
                 <div className="flex items-center gap-3">
-                  <Video className="w-5 h-5 text-primary" />
+                  <GraduationCap className="w-5 h-5 text-primary" />
                   <span className="text-left">¿Dónde puedo ver la información de masterclass, talleres y grabaciones?</span>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground pl-8">
                 Toda la información sobre masterclass, talleres y grabaciones está disponible en tu campus virtual. 
-                Accede a través del módulo 2 para encontrar el calendario completo y los enlaces de acceso.
+                Accede a través del módulo correspondiente para encontrar el calendario completo y los enlaces de acceso.
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-2" className="border rounded-lg px-4 bg-background/50">
+            <AccordionItem value="item-2" className="border rounded-lg px-6 bg-card">
               <AccordionTrigger className="hover:no-underline">
                 <div className="flex items-center gap-3">
                   <BookOpen className="w-5 h-5 text-primary" />
@@ -127,7 +136,7 @@ const Onboarding = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-3" className="border rounded-lg px-4 bg-background/50">
+            <AccordionItem value="item-3" className="border rounded-lg px-6 bg-card">
               <AccordionTrigger className="hover:no-underline">
                 <div className="flex items-center gap-3">
                   <Key className="w-5 h-5 text-primary" />
@@ -140,7 +149,7 @@ const Onboarding = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-4" className="border rounded-lg px-4 bg-background/50">
+            <AccordionItem value="item-4" className="border rounded-lg px-6 bg-card">
               <AccordionTrigger className="hover:no-underline">
                 <div className="flex items-center gap-3">
                   <Users className="w-5 h-5 text-primary" />
@@ -153,7 +162,7 @@ const Onboarding = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-5" className="border rounded-lg px-4 bg-background/50">
+            <AccordionItem value="item-5" className="border rounded-lg px-6 bg-card">
               <AccordionTrigger className="hover:no-underline">
                 <div className="flex items-center gap-3">
                   <Award className="w-5 h-5 text-primary" />
@@ -166,7 +175,7 @@ const Onboarding = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-6" className="border rounded-lg px-4 bg-background/50">
+            <AccordionItem value="item-6" className="border rounded-lg px-6 bg-card">
               <AccordionTrigger className="hover:no-underline">
                 <div className="flex items-center gap-3">
                   <Target className="w-5 h-5 text-primary" />
@@ -179,7 +188,7 @@ const Onboarding = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-7" className="border rounded-lg px-4 bg-background/50">
+            <AccordionItem value="item-7" className="border rounded-lg px-6 bg-card">
               <AccordionTrigger className="hover:no-underline">
                 <div className="flex items-center gap-3">
                   <BarChart3 className="w-5 h-5 text-primary" />
@@ -192,7 +201,7 @@ const Onboarding = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-8" className="border rounded-lg px-4 bg-background/50">
+            <AccordionItem value="item-8" className="border rounded-lg px-6 bg-card">
               <AccordionTrigger className="hover:no-underline">
                 <div className="flex items-center gap-3">
                   <BadgeCheck className="w-5 h-5 text-primary" />
@@ -205,7 +214,7 @@ const Onboarding = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-9" className="border rounded-lg px-4 bg-background/50">
+            <AccordionItem value="item-9" className="border rounded-lg px-6 bg-card">
               <AccordionTrigger className="hover:no-underline">
                 <div className="flex items-center gap-3">
                   <BadgeCheck className="w-5 h-5 text-primary" />
@@ -218,7 +227,7 @@ const Onboarding = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-10" className="border rounded-lg px-4 bg-background/50">
+            <AccordionItem value="item-10" className="border rounded-lg px-6 bg-card">
               <AccordionTrigger className="hover:no-underline">
                 <div className="flex items-center gap-3">
                   <Heart className="w-5 h-5 text-primary" />
