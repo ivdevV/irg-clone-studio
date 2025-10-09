@@ -2,6 +2,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Progress } from "@/components/ui/progress";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import isepLogo from "@/assets/isep-logo.png";
 import directorImage from "@/assets/director.png";
 import {
@@ -41,6 +48,7 @@ const onboardingSteps = [
 
 const Onboarding = () => {
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
+  const [openDialog, setOpenDialog] = useState<number | null>(null);
   const navigate = useNavigate();
 
   const progressPercentage = (completedSteps.length / onboardingSteps.length) * 100;
@@ -100,11 +108,7 @@ const Onboarding = () => {
                 return (
                   <button
                     key={index}
-                    onClick={() => {
-                      if (!isCompleted) {
-                        setCompletedSteps([...completedSteps, index]);
-                      }
-                    }}
+                    onClick={() => setOpenDialog(index)}
                     className="bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-2xl p-6 text-center transition-all border border-white/20 group"
                   >
                     <Icon className={`w-10 h-10 mx-auto mb-3 ${step.color} group-hover:scale-110 transition-transform`} />
@@ -115,6 +119,48 @@ const Onboarding = () => {
             </div>
           </div>
         </Card>
+
+        {/* Video Dialog */}
+        <Dialog open={openDialog === 0} onOpenChange={(open) => !open && setOpenDialog(null)}>
+          <DialogContent className="max-w-3xl bg-gradient-primary border-none">
+            <DialogHeader>
+              <DialogTitle className="text-3xl font-bold text-white text-center mb-2">
+                Tu Aventura Comienza Ahora
+              </DialogTitle>
+              <p className="text-white/90 text-center text-lg">
+                Este video es el punto de partida de un viaje increíble. ¡Estamos emocionados de tenerte y no podemos esperar a ver todo lo que lograrás!
+              </p>
+            </DialogHeader>
+            <div className="mt-4">
+              <div className="aspect-video rounded-lg overflow-hidden">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  title="Video de Bienvenida"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+            </div>
+            <div className="flex justify-center mt-6">
+              <Button
+                size="lg"
+                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 text-lg rounded-full"
+                onClick={() => {
+                  setOpenDialog(null);
+                  if (!completedSteps.includes(0)) {
+                    setCompletedSteps([...completedSteps, 0]);
+                  }
+                }}
+              >
+                ¡Entendido, a empezar!
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
 
         {/* FAQ Section */}
         <section className="max-w-4xl mx-auto">
