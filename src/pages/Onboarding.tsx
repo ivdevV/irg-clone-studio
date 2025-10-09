@@ -29,14 +29,14 @@ import {
 } from "lucide-react";
 
 const onboardingSteps = [
-  { icon: Video, title: "Video de Bienvenida", color: "text-orange-400" },
-  { icon: LayoutGrid, title: "Ingresa a tu campus", color: "text-orange-400" },
-  { icon: FileText, title: "Plan Docente", color: "text-orange-400" },
-  { icon: Phone, title: "Contacto Docente", color: "text-orange-400" },
-  { icon: BookOpen, title: "Contenidos", color: "text-orange-400" },
-  { icon: Link2, title: "Enlaces de Interés", color: "text-orange-400" },
-  { icon: Award, title: "Encuesta y Certificado", color: "text-orange-400" },
-  { icon: CreditCard, title: "Módulo de Facturación", color: "text-orange-400" },
+  { icon: Video, title: "Video de Bienvenida", color: "text-white" },
+  { icon: LayoutGrid, title: "Ingresa a tu campus", color: "text-white" },
+  { icon: FileText, title: "Plan Docente", color: "text-white" },
+  { icon: Phone, title: "Contacto Docente", color: "text-white" },
+  { icon: BookOpen, title: "Contenidos", color: "text-white" },
+  { icon: Link2, title: "Enlaces de Interés", color: "text-white" },
+  { icon: Award, title: "Encuesta y Certificado", color: "text-white" },
+  { icon: CreditCard, title: "Módulo de Facturación", color: "text-white" },
 ];
 
 const Onboarding = () => {
