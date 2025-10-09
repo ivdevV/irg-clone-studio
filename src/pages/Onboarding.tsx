@@ -136,10 +136,10 @@ const Onboarding = () => {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  src="https://drive.google.com/file/d/1mRI80KIqlaae2EG5l4sD3CYZcxGm5dEG/preview"
                   title="Video de Bienvenida"
                   frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allow="autoplay"
                   allowFullScreen
                   className="w-full h-full"
                 ></iframe>
