@@ -23,15 +23,12 @@ import {
   FileText, 
   Phone, 
   BookOpen, 
-  Link2, 
   Award, 
   CreditCard,
   Key,
   Users,
   Target,
   BarChart3,
-  BadgeCheck,
-  Heart,
   GraduationCap
 } from "lucide-react";
 
@@ -41,9 +38,8 @@ const onboardingSteps = [
   { icon: FileText, title: "Plan Docente", color: "text-white" },
   { icon: Phone, title: "Contacto Docente", color: "text-white" },
   { icon: BookOpen, title: "Contenidos", color: "text-white" },
-  { icon: Link2, title: "Enlaces de Interés", color: "text-white" },
-  { icon: Award, title: "Encuesta y Certificado", color: "text-white" },
   { icon: CreditCard, title: "Módulo de Facturación", color: "text-white" },
+  { icon: Award, title: "Encuesta y Certificado", color: "text-white" },
 ];
 
 const Onboarding = () => {
