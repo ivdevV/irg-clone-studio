@@ -162,6 +162,48 @@ const Onboarding = () => {
           </DialogContent>
         </Dialog>
 
+        {/* Campus Dialog */}
+        <Dialog open={openDialog === 1} onOpenChange={(open) => !open && setOpenDialog(null)}>
+          <DialogContent className="max-w-3xl bg-gradient-primary border-none">
+            <DialogHeader>
+              <DialogTitle className="text-3xl font-bold text-white text-center mb-2">
+                Ingresa a tu Campus
+              </DialogTitle>
+              <p className="text-white/90 text-center text-lg">
+                Descubre todo lo que tu campus tiene para ofrecerte.
+              </p>
+            </DialogHeader>
+            <div className="mt-4">
+              <div className="aspect-video rounded-lg overflow-hidden">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/KMrJYaOLhsw"
+                  title="Ingresa a tu Campus"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+            </div>
+            <div className="flex justify-center mt-6">
+              <Button
+                size="lg"
+                className="bg-white hover:bg-white/90 text-primary px-8 py-6 text-lg rounded-full font-semibold"
+                onClick={() => {
+                  setOpenDialog(null);
+                  if (!completedSteps.includes(1)) {
+                    setCompletedSteps([...completedSteps, 1]);
+                  }
+                }}
+              >
+                ¡Entendido!
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+
         {/* FAQ Section */}
         <section className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-8 text-foreground">
