@@ -64,7 +64,7 @@ const Index = () => {
               className="bg-gradient-primary hover:opacity-90 transition-opacity text-lg px-8 py-6 shadow-glow"
               onClick={() => window.location.href = '/onboarding'}
             >
-              Iniciar mi aventura con el Instituto Raimon Gaja
+              Iniciar mi onboarding al nuevo campus iRG
             </Button>
           </div>
         </Card>
