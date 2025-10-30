@@ -216,7 +216,7 @@ const Onboarding = () => {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/Y5XHk97bCp4"
+                  src="https://www.youtube.com/embed/1JBGNCmcYuw"
                   title="Plan Docente"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
