@@ -200,6 +200,48 @@ const Onboarding = () => {
           </DialogContent>
         </Dialog>
 
+        {/* Plan Docente Dialog */}
+        <Dialog open={openDialog === 2} onOpenChange={(open) => !open && setOpenDialog(null)}>
+          <DialogContent className="max-w-3xl bg-gradient-primary border-none">
+            <DialogHeader>
+              <DialogTitle className="text-3xl font-bold text-white text-center mb-2">
+                Plan Docente
+              </DialogTitle>
+              <p className="text-white/90 text-center text-lg">
+                Consulta el plan de estudios y la estructura de tu programa.
+              </p>
+            </DialogHeader>
+            <div className="mt-4">
+              <div className="aspect-video rounded-lg overflow-hidden">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/Y5XHk97bCp4"
+                  title="Plan Docente"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+            </div>
+            <div className="flex justify-center mt-6">
+              <Button
+                size="lg"
+                className="bg-white hover:bg-white/90 text-primary px-8 py-6 text-lg rounded-full font-semibold"
+                onClick={() => {
+                  setOpenDialog(null);
+                  if (!completedSteps.includes(2)) {
+                    setCompletedSteps([...completedSteps, 2]);
+                  }
+                }}
+              >
+                ¡Entendido!
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+
         {/* Contenidos Dialog */}
         <Dialog open={openDialog === 4} onOpenChange={(open) => !open && setOpenDialog(null)}>
           <DialogContent className="max-w-3xl bg-gradient-primary border-none">
@@ -292,12 +334,12 @@ const Onboarding = () => {
               <AccordionTrigger className="hover:no-underline">
                 <div className="flex items-center gap-3">
                   <Users className="w-5 h-5 text-primary" />
-                  <span className="text-left">¿Cómo ingresar a Microsoft Teams?</span>
+                  <span className="text-left">¿Cómo ingresar a Google Meets?</span>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground pl-8">
-                Recibirás las credenciales de Microsoft Teams en tu correo institucional. 
-                Descarga la aplicación o accede desde el navegador con tus credenciales.
+                Recibirás los enlaces de Google Meets en tu correo institucional para cada sesión. 
+                Solo necesitas hacer clic en el enlace o acceder desde tu calendario de Google.
               </AccordionContent>
             </AccordionItem>
 
