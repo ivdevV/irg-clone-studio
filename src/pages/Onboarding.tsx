@@ -37,7 +37,7 @@ const onboardingSteps = [
   { icon: FileText, title: "Plan Docente", color: "text-white" },
   { icon: Phone, title: "Contacto Docente", color: "text-white" },
   { icon: BookOpen, title: "Contenidos", color: "text-white" },
-  { icon: Award, title: "Encuesta y Certificado", color: "text-white" },
+  { icon: Award, title: "Encuesta y Exámenes", color: "text-white" },
 ];
 
 const Onboarding = () => {
@@ -324,15 +324,15 @@ const Onboarding = () => {
           </DialogContent>
         </Dialog>
 
-        {/* Encuesta y Certificado Dialog */}
+        {/* Encuesta y Exámenes Dialog */}
         <Dialog open={openDialog === 5} onOpenChange={(open) => !open && setOpenDialog(null)}>
           <DialogContent className="max-w-3xl bg-gradient-primary border-none">
             <DialogHeader>
               <DialogTitle className="text-3xl font-bold text-white text-center mb-2">
-                Encuesta y Certificado
+                Encuesta y Exámenes
               </DialogTitle>
               <p className="text-white/90 text-center text-lg">
-                Completa tu encuesta y obtén tu certificado de finalización.
+                Completa tu encuesta y conoce el proceso de evaluación.
               </p>
             </DialogHeader>
             <div className="mt-4">
@@ -341,7 +341,7 @@ const Onboarding = () => {
                   width="100%"
                   height="100%"
                   src="https://www.youtube.com/embed/HXBO8tlnC7s"
-                  title="Encuesta y Certificado"
+                  title="Encuesta y Exámenes"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
