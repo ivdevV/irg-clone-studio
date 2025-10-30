@@ -242,6 +242,48 @@ const Onboarding = () => {
           </DialogContent>
         </Dialog>
 
+        {/* Contacto Docente Dialog */}
+        <Dialog open={openDialog === 3} onOpenChange={(open) => !open && setOpenDialog(null)}>
+          <DialogContent className="max-w-3xl bg-gradient-primary border-none">
+            <DialogHeader>
+              <DialogTitle className="text-3xl font-bold text-white text-center mb-2">
+                Contacto Docente
+              </DialogTitle>
+              <p className="text-white/90 text-center text-lg">
+                Conoce cómo contactar con tus docentes y resolver tus dudas.
+              </p>
+            </DialogHeader>
+            <div className="mt-4">
+              <div className="aspect-video rounded-lg overflow-hidden">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/1JBGNCmcYuw"
+                  title="Contacto Docente"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+            </div>
+            <div className="flex justify-center mt-6">
+              <Button
+                size="lg"
+                className="bg-white hover:bg-white/90 text-primary px-8 py-6 text-lg rounded-full font-semibold"
+                onClick={() => {
+                  setOpenDialog(null);
+                  if (!completedSteps.includes(3)) {
+                    setCompletedSteps([...completedSteps, 3]);
+                  }
+                }}
+              >
+                ¡Entendido!
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+
         {/* Contenidos Dialog */}
         <Dialog open={openDialog === 4} onOpenChange={(open) => !open && setOpenDialog(null)}>
           <DialogContent className="max-w-3xl bg-gradient-primary border-none">
