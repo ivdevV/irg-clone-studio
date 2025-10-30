@@ -35,15 +35,19 @@ const Index = () => {
             </p>
 
             <p>
-              Hoy comienzan algo extraordinario. En nombre de todo el equipo del Instituto Raimon Gaja, les doy la más cálida bienvenida a esta comunidad de transformadores de vidas. Están aquí porque no se conforman con ser psicólogos del montón, sino especialistas de excelencia preparados para resolver los casos más complejos. Esa determinación merece mi más profunda admiración.
+              Me complace anunciarles que estamos evolucionando nuestra plataforma de aprendizaje e iniciamos la transición de Moodle a Odoo, una solución más innovadora, intuitiva y alineada con las necesidades actuales de la formación superior.
             </p>
 
             <p>
-              En el Instituto Raimon Gaja creemos en una psicología práctica que se aprende haciendo. Les enseñaremos a curar con las técnicas más avanzadas de Europa, de la mano de profesionales con décadas de experiencia real. Aprenderán lo que realmente necesitan: cómo conducir esa primera sesión, manejar una crisis, transformar el sufrimiento en esperanza. Y no estarán solos: cuentan con mentores de prestigio internacional y una comunidad que cree profundamente en su potencial.
+              Queremos que este cambio sea ágil y sencillo para todos. Para facilitar la adaptación, hemos preparado vídeos formativos que les guiarán paso a paso, asegurando una experiencia sin interrupciones y el aprovechamiento inmediato de todas las nuevas funcionalidades.
             </p>
 
             <p>
-              Este es su momento de transformación: de la inseguridad a la maestría, de la teoría a la práctica real, de ser uno más a ser el especialista de referencia en su ciudad. Sé que pueden sentir nervios, pero el simple hecho de estar aquí demuestra que están listos. Bienvenidos al Instituto Raimon Gaja. Estamos profundamente orgullosos de tenerlos en esta familia.
+              Esta mejora reafirma nuestro compromiso con la innovación y la excelencia educativa. Les animo a descubrir las nuevas oportunidades que Odoo nos ofrece para avanzar juntos hacia una experiencia de aprendizaje aún más enriquecedora.
+            </p>
+
+            <p>
+              Demos este paso con confianza y determinación.
             </p>
 
             <p className="italic">
