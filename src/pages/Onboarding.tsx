@@ -24,7 +24,6 @@ import {
   Phone, 
   BookOpen, 
   Award, 
-  CreditCard,
   Key,
   Users,
   Target,
@@ -38,7 +37,6 @@ const onboardingSteps = [
   { icon: FileText, title: "Plan Docente", color: "text-white" },
   { icon: Phone, title: "Contacto Docente", color: "text-white" },
   { icon: BookOpen, title: "Contenidos", color: "text-white" },
-  { icon: CreditCard, title: "Módulo de Facturación", color: "text-white" },
   { icon: Award, title: "Encuesta y Certificado", color: "text-white" },
 ];
 
@@ -327,7 +325,7 @@ const Onboarding = () => {
         </Dialog>
 
         {/* Encuesta y Certificado Dialog */}
-        <Dialog open={openDialog === 6} onOpenChange={(open) => !open && setOpenDialog(null)}>
+        <Dialog open={openDialog === 5} onOpenChange={(open) => !open && setOpenDialog(null)}>
           <DialogContent className="max-w-3xl bg-gradient-primary border-none">
             <DialogHeader>
               <DialogTitle className="text-3xl font-bold text-white text-center mb-2">
@@ -357,8 +355,8 @@ const Onboarding = () => {
                 className="bg-white hover:bg-white/90 text-primary px-8 py-6 text-lg rounded-full font-semibold"
                 onClick={() => {
                   setOpenDialog(null);
-                  if (!completedSteps.includes(6)) {
-                    setCompletedSteps([...completedSteps, 6]);
+                  if (!completedSteps.includes(5)) {
+                    setCompletedSteps([...completedSteps, 5]);
                   }
                 }}
               >
