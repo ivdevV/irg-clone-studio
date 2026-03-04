@@ -172,7 +172,7 @@ const Onboarding = () => {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/KMrJYaOLhsw"
+                  src="https://player.vimeo.com/video/1170230174"
                   title="Ingresa a tu Campus"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -214,7 +214,7 @@ const Onboarding = () => {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/1JBGNCmcYuw"
+                  src="https://player.vimeo.com/video/1170230250"
                   title="Plan Docente"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -256,7 +256,7 @@ const Onboarding = () => {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/upIlReTZg8o"
+                  src="https://player.vimeo.com/video/1170230205"
                   title="Contacto Docente"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -298,7 +298,7 @@ const Onboarding = () => {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/Y5XHk97bCp4"
+                  src="https://player.vimeo.com/video/1170230225"
                   title="Contenidos"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -340,7 +340,7 @@ const Onboarding = () => {
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/HXBO8tlnC7s"
+                  src="https://player.vimeo.com/video/1170230236"
                   title="Encuesta y Exámenes"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
