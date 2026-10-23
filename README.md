@@ -50,6 +50,26 @@ npm run dev
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
+## Variables de entorno
+
+Vite lee estas variables en el build (`import.meta.env`). No las subas al repositorio.
+
+| Variable | Uso |
+| --- | --- |
+| `VITE_SUPABASE_URL` | URL del proyecto Supabase |
+| `VITE_SUPABASE_PROJECT_ID` | Referencia del proyecto |
+| `VITE_SUPABASE_PUBLISHABLE_KEY` | Clave anon (JWT legacy) o clave publishable del cliente |
+
+Configuración local:
+
+```sh
+cp .env.example .env
+```
+
+Rellena `.env` con los valores del panel de Supabase (Project Settings → API Keys). `.env`, `.env.local` y `.env.*.local` están en `.gitignore`.
+
+`npm run build` incrusta las variables `VITE_*` en el JavaScript de `dist`. Después de cambiarlas hay que volver a compilar y publicar. En Lovable eso ocurre al usar Share → Publish. No uses `git add -f .env`: un alta forzada volvería a versionar el secreto.
+
 ## What technologies are used for this project?
 
 This project is built with:
