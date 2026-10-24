@@ -1,0 +1,40 @@
+{
+  "method": "GET",
+  "key_format": "jwt",
+  "key_role": "anon",
+  "writes": false,
+  "row_content_recorded": false,
+  "rest_root": {
+    "path": "/rest/v1/",
+    "http": 401,
+    "code": null,
+    "message": "Invalid API key",
+    "hint": "Only the `service_role` API key can be used for this endpoint.",
+    "note": "No se usó service_role. Este endpoint no sirvió para enumerar tablas."
+  },
+  "probes": [
+    {
+      "table": "profiles",
+      "http": 404,
+      "content_range": null,
+      "visible_rows": null,
+      "code": "PGRST205",
+      "message": "Could not find the table 'public.profiles' in the schema cache"
+    },
+    {
+      "table": "module_progress",
+      "http": 404,
+      "content_range": null,
+      "visible_rows": null,
+      "code": "PGRST205",
+      "message": "Could not find the table 'public.module_progress' in the schema cache"
+    }
+  ],
+  "rpcs_called": [],
+  "storage": {
+    "path": "/storage/v1/bucket",
+    "http": 200,
+    "buckets": [],
+    "public_buckets": []
+  }
+}

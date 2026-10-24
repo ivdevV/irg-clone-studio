@@ -1,0 +1,153 @@
+{
+  "status": "passed",
+  "model_tier_used": "grok-4.7",
+  "tier": "standard",
+  "escalations": [],
+  "environment": {
+    "runtime": {
+      "node": "v22.23.4",
+      "npm": "10.9.9"
+    },
+    "database": "none",
+    "base_commit": "51749d9f2c09c606c7767e06bbf7dbf54c4508f6"
+  },
+  "checks": [
+    {
+      "name": "git_env_untracked",
+      "command": "git ls-files --error-unmatch .env ; echo exit:$?",
+      "result": "pass",
+      "detail": ".env no está en el índice (exit 1) y el archivo sigue en disco.",
+      "evidence": {
+        "ls_files_exit": 1,
+        "file_on_disk": true,
+        "mode": "600"
+      }
+    },
+    {
+      "name": "gitignore_patterns",
+      "command": "git check-ignore -v -- .env .env.local .env.production.local ; git check-ignore -q -- .env.example ; echo example_exit:$?",
+      "result": "pass",
+      "detail": ".env, .env.local y .env.production.local están ignorados; .env.example no.",
+      "evidence": {
+        "ignored": [".env", ".env.local", ".env.production.local"],
+        "rules": [".env", ".env.local", ".env.*.local"],
+        "example_exit": 1
+      }
+    },
+    {
+      "name": "env_example_empty",
+      "command": "lectura de .env.example",
+      "result": "pass",
+      "detail": "Solo están las tres claves Vite y las tres tienen el valor vacío.",
+      "evidence": {
+        "assignments": [
+          "VITE_SUPABASE_URL=",
+          "VITE_SUPABASE_PROJECT_ID=",
+          "VITE_SUPABASE_PUBLISHABLE_KEY="
+        ]
+      }
+    },
+    {
+      "name": "secrets_absent_from_added_docs",
+      "command": "python3 comparación de valores no vacíos de .env contra los documentos listados",
+      "result": "pass",
+      "detail": "Ningún valor no vacío de .env aparece en los documentos revisados.",
+      "evidence": {
+        "nonempty_values": 3,
+        "matching_paths": [],
+        "files": [
+          ".gitignore",
+          "README.md",
+          ".env.example",
+          "CHANGELOG.md",
+          "plan.md",
+          "execution.md",
+          "rls_review.md",
+          "artifacts/anon_probe.json",
+          "verification.json"
+        ]
+      }
+    },
+    {
+      "name": "build_with_placeholder_env",
+      "command": "npm run build",
+      "result": "pass",
+      "detail": "El build terminó en 0, el dist no contenía valores reales y .env se restauró byte a byte.",
+      "evidence": {
+        "exit_code": 0,
+        "real_secrets_in_dist": false,
+        "env_restored": true,
+        "dist_files_scanned": 8,
+        "backup_removed": true,
+        "dist_removed": true
+      }
+    },
+    {
+      "name": "history_not_rewritten",
+      "command": "git rev-parse HEAD; git rev-list --max-parents=0 HEAD; git rev-list --count HEAD; git cat-file -e 1035b986cc1adb38dbd1ecc92708c7cdce2217da:.env",
+      "result": "pass",
+      "detail": "HEAD, la raíz, el número de commits y el blob histórico de .env siguen igual.",
+      "evidence": {
+        "head": "51749d9f2c09c606c7767e06bbf7dbf54c4508f6",
+        "root": "ce8c0ff84ae82ef458b0834c8e6946ed99583997",
+        "commit_count": 39,
+        "historical_env_blob": true
+      }
+    },
+    {
+      "name": "anon_probe_matches_report",
+      "command": "GET /rest/v1/profiles?select=*&limit=1; GET /rest/v1/module_progress?select=*&limit=1; GET /storage/v1/bucket",
+      "result": "pass",
+      "detail": "profiles y module_progress siguen en 404; storage responde 200 con lista vacía.",
+      "evidence": {
+        "method": "GET",
+        "key_role": "anon",
+        "writes": false,
+        "profiles": {
+          "http": 404,
+          "code": "PGRST205"
+        },
+        "module_progress": {
+          "http": 404,
+          "code": "PGRST205"
+        },
+        "storage": {
+          "http": 200,
+          "bucket_count": 0,
+          "public_bucket_count": 0
+        }
+      }
+    },
+    {
+      "name": "e2e_testsprite",
+      "command": "no ejecutado",
+      "result": "skipped",
+      "detail": "El diff no toca vistas, plantillas, assets estáticos, controladores HTTP ni código frontend (src/).",
+      "evidence": {
+        "reason": "alcance",
+        "changed_paths": [
+          ".env",
+          ".gitignore",
+          "README.md",
+          ".env.example",
+          "CHANGELOG.md",
+          "plan.md",
+          "execution.md",
+          "rls_review.md",
+          "artifacts/"
+        ],
+        "src_touched": false
+      }
+    },
+    {
+      "name": "visibility_unchanged",
+      "command": "gh repo view --json visibility,isPrivate",
+      "result": "pass",
+      "detail": "El repositorio sigue público.",
+      "evidence": {
+        "visibility": "PUBLIC",
+        "isPrivate": false
+      }
+    }
+  ]
+}
